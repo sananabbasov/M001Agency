@@ -1,0 +1,22 @@
+﻿
+
+<div>
+    Burada menular var bura navbardi.
+</div>
+
+@*@{
+    for (var i = 0; i < 4; i++)
+    {
+        <h1>@i</h1>
+
+    }
+
+}*@
+@*<h1>@ViewBag.Title</h1>
+<h1>@ViewData["desc"]</h1>*@
+
+<h1>@ViewBag.Banner.Title</h1>
+<img src="@ViewBag.Banner.PhotoURL" />
+
+
+<a href="/home/about">About</a>
