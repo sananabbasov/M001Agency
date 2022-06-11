@@ -1,32 +1,25 @@
-﻿using Agency.Models;
+﻿using Agency.Data;
+using Agency.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Agency.Controllers
 {
     public class HomeController : Controller
     {
-        Banner banner = new()
+
+        private readonly AppDbContext _context;
+
+        public HomeController(AppDbContext context)
         {
-            Id = 1,
-            PhotoURL = "https://startbootstrap.github.io/startbootstrap-agency/assets/img/header-bg.jpg",
-            Title = "Welcome M001!",
-            Subtitle = "IT'S NICE TO MEET YOU"
-        };
-        List<Service> services = new()
-        {
-            new Service { Id = 1, Icon= "fa-solid fa-bicycle", Title="Test 1",Description="test" },
-            new Service { Id = 2, Icon= "fa-solid fa-bezier-curve", Title="Test 2",Description="test" },
-            new Service { Id = 3, Icon= "fa-solid fa-beer-mug-empty", Title="Test 3",Description= "test" },
-            new Service { Id = 4, Icon= "fa-solid fa-battery-full", Title="Test 4",Description= "test" },
-            new Service { Id = 5, Icon= "fa-brands fa-blogger", Title="Test 5",Description= "test" }
-        };
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            ViewBag.Title = "Salam";
-            ViewBag.Banner = banner;
-            ViewBag.Services = services;
-            ViewData["MyServices"] = services;
-            return View();
+            var banner = _context.Banners.FirstOrDefault();
+            var services = _context.Services.ToList();
+            
+            return View(services);
         }
 
         public IActionResult About()

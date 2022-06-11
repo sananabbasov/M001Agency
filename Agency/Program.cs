@@ -20,8 +20,3 @@ app.MapControllerRoute(
 );
 
 app.Run();
-
-
-
-
-// ctrl + shift + b
