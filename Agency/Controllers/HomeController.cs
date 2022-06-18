@@ -10,14 +10,17 @@ namespace Agency.Controllers
     {
 
         private readonly AppDbContext _context;
+        private readonly DataSeeding _dataSeeding;
 
-        public HomeController(AppDbContext context)
+        public HomeController(AppDbContext context, DataSeeding dataSeeding)
         {
             _context = context;
+            _dataSeeding = dataSeeding;
         }
 
         public IActionResult Index()
         {
+            _dataSeeding.SeedData();
             var banner = _context.Banners.FirstOrDefault();
             var services = _context.Services.ToList();
             var abouts = _context.Abouts.ToList();

@@ -15,5 +15,7 @@ namespace Agency.Data
         public DbSet<Social> Socials { get; set; }
         public DbSet<SocialNetwork> SocialNetworks { get; set; }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<Portfolio> Portfolios { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
