@@ -10,6 +10,10 @@ namespace Agency.Data
 
         public DbSet<Banner> Banners { get; set; }
         public DbSet<Service> Services { get; set; }
-
+        public DbSet<About> Abouts { get; set; }
+        public DbSet<Position> Positions { get; set; }
+        public DbSet<Social> Socials { get; set; }
+        public DbSet<SocialNetwork> SocialNetworks { get; set; }
+        public DbSet<Team> Teams { get; set; }
     }
 }

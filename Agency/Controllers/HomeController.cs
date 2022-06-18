@@ -1,6 +1,8 @@
 ﻿using Agency.Data;
 using Agency.Models;
+using Agency.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Agency.Controllers
 {
@@ -18,8 +20,23 @@ namespace Agency.Controllers
         {
             var banner = _context.Banners.FirstOrDefault();
             var services = _context.Services.ToList();
+            var abouts = _context.Abouts.ToList();
+            var teams = _context.Teams.Include(x=>x.Position).ToList();
+            var socials = _context.Socials.Include(x=>x.SocialNetwork).ToList();
+
             
-            return View(services);
+            
+            HomeVM vm = new()
+            {
+                Banner = banner,
+                Services = services,
+                Abouts = abouts,
+                Socials = socials,
+                Teams = teams,
+            };
+
+            
+            return View(vm);
         }
 
         public IActionResult About()
