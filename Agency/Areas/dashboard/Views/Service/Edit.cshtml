@@ -1,0 +1,20 @@
+﻿@model Service
+
+
+<form method="post">
+    <div class="container">
+        <div class="row">
+            <input type="hidden" value="@Model.Id" />
+            <div class="input-group my-2">
+                <input name="Title" class="form-control" value="@Model.Title" type="text" placeholder="Title" />
+            </div>
+            <div class="input-group my-2">
+                <input name="Icon" class="form-control" value="@Model.Icon" type="text" placeholder="Icon" />
+            </div>
+            <div class="input-group my-2">
+                <input name="Description" class="form-control" value="@Model.Description" type="text" placeholder="Description" />
+            </div>
+            <input type="submit" class="btn btn-outline-warning" value="Update" />
+        </div>
+    </div>
+</form>

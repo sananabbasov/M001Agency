@@ -17,5 +17,6 @@ namespace Agency.Data
         public DbSet<Team> Teams { get; set; }
         public DbSet<Portfolio> Portfolios { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
     }
 }

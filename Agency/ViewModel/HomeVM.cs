@@ -9,5 +9,6 @@ namespace Agency.ViewModel
         public List<About> Abouts { get; set; }
         public List<Team> Teams { get; set; }
         public List<Social> Socials { get; set; }
+        public List<Portfolio> Portfolios { get; set; }
     }
 }

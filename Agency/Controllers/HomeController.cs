@@ -26,7 +26,7 @@ namespace Agency.Controllers
             var abouts = _context.Abouts.ToList();
             var teams = _context.Teams.Include(x=>x.Position).ToList();
             var socials = _context.Socials.Include(x=>x.SocialNetwork).ToList();
-
+            var portfolios = _context.Portfolios.Include(x=>x.Category).ToList();
             
             
             HomeVM vm = new()
@@ -36,6 +36,7 @@ namespace Agency.Controllers
                 Abouts = abouts,
                 Socials = socials,
                 Teams = teams,
+                Portfolios = portfolios,
             };
 
             
@@ -46,6 +47,16 @@ namespace Agency.Controllers
         {
            
             return View();
+        }
+
+        
+        [HttpPost]
+        public async Task<IActionResult> Contact(Contact contact)
+        {
+            _context.Contacts.Add(contact);
+            await _context.SaveChangesAsync();
+
+            return Ok();
         }
         
     }
