@@ -1,4 +1,11 @@
-﻿<form method="post">
+﻿<style>
+    #icons span {
+        border: 1px solid #ccc;
+        padding: 5px;
+    }
+</style>
+
+<form method="post">
     <div class="container">
         <div class="row">
             <div class="input-group my-2">
@@ -7,6 +14,12 @@
             <div class="input-group my-2">
                 <input name="Icon" class="form-control" type="text" placeholder="Icon" />
             </div>
+
+            <div id="icons">
+                <span onclick="myFunction(this)"> Salam</span>
+            </div>
+
+
             <div class="input-group my-2">
                 <input name="Description" class="form-control" type="text" placeholder="Description" />
             </div>
@@ -14,3 +27,41 @@
         </div>
     </div>
 </form>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+
+<script>
+     let iconspan = document.getElementById("icons")
+     let mySpan = document.getElementsByClassName("mySpan")
+     var icons =
+     [
+         'fa-solid fa-hashtag','fa-solid fa-share','fa-brands fa-facebook-square',
+         'fa-brands fa-google-plus-g','fa-solid fa-heart','fa-solid fa-camera'
+     ]
+    for(i = 0; i < icons.length; i++){
+        var icon = document.createElement("i")
+        icon.className = icons[i]; // <i class="fa-solid fa-share"></i>
+        icon.setAttribute("tofiq",icons[i])
+        var span = document.createElement("span") // <span> </span>
+        span.setAttribute("tofiq",icons[i])
+        span.setAttribute("class","mySpan")
+        span.appendChild(icon) // <span><i class="fa-solid fa-share"></i> </span>
+        iconspan.appendChild(span)
+
+        span.onclick = (e) =>{
+            console.log(e[0].getAttribute("tofiq"))
+        }
+    }
+
+
+    function myFunction(e) {
+        console.log(e)
+    }
+
+    
+
+
+</script>
