@@ -10,6 +10,7 @@
     <Folder Include="Areas\dashboard\Data\" />
     <Folder Include="Areas\dashboard\Models\" />
     <Folder Include="Controllers\" />
+    <Folder Include="wwwroot\image\" />
   </ItemGroup>
 
   <ItemGroup>
