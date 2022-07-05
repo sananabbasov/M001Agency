@@ -44,6 +44,23 @@ namespace Agency.Areas.dashboard.Controllers
             
         }
 
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            var category = _context.Categories.FirstOrDefault(c=>c.Id == id);
+            if(id == null)
+                return NotFound();
+            if (category == null)
+                return NotFound();
+            return View(category);
+        }
+
+
+        [HttpPost]
+        public IActionResult Edit(Category category)
+        {
+            return RedirectToAction("Index");
+        }
 
 
     }
