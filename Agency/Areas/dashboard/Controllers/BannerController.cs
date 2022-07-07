@@ -1,10 +1,12 @@
 ﻿using Agency.Data;
 using Agency.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Agency.Areas.dashboard.Controllers
 {
     [Area("dashboard")]
+    [Authorize]
     public class BannerController : Controller
     {
         private readonly AppDbContext _context;
@@ -19,6 +21,7 @@ namespace Agency.Areas.dashboard.Controllers
             var banner = _context.Banners.FirstOrDefault();
             return View(banner);
         }
+        
         public IActionResult Create()
         {
             var banner = _context.Banners.FirstOrDefault();

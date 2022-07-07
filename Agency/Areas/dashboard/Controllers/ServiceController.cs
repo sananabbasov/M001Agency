@@ -1,10 +1,12 @@
 ﻿using Agency.Data;
 using Agency.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Agency.Areas.dashboard.Controllers
 {
     [Area("dashboard")]
+    [Authorize]
     public class ServiceController : Controller
     {
         private readonly AppDbContext _context;

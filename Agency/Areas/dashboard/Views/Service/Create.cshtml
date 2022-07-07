@@ -12,11 +12,16 @@
                 <input name="Title" class="form-control" type="text" placeholder="Title" />
             </div>
             <div class="input-group my-2">
-                <input name="Icon" class="form-control" type="text" placeholder="Icon" />
+                <input id="myInput"  name="Icon" class="form-control" type="hidden" placeholder="Icon" />
             </div>
 
             <div id="icons">
-                <span onclick="myFunction(this)"> Salam</span>
+                <i tofiq="fa-solid fa-hashtag" class="myIcon fa-solid fa-hashtag"></i>
+                <i tofiq="fa-solid fa-share" class="myIcon fa-solid fa-share"></i>
+                <i tofiq="fa-brands fa-facebook-square" class="myIcon fa-brands fa-facebook-square"></i>
+                <i tofiq="fa-brands fa-google-plus-g" class="myIcon fa-brands fa-google-plus-g"></i>
+                <i tofiq="fa-solid fa-heart" class="myIcon fa-solid fa-heart"></i>
+                <i tofiq="fa-solid fa-camera" class="myIcon fa-solid fa-camera"></i>
             </div>
 
 
@@ -28,40 +33,24 @@
     </div>
 </form>
 
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
 
 <script>
-     let iconspan = document.getElementById("icons")
-     let mySpan = document.getElementsByClassName("mySpan")
-     var icons =
-     [
-         'fa-solid fa-hashtag','fa-solid fa-share','fa-brands fa-facebook-square',
-         'fa-brands fa-google-plus-g','fa-solid fa-heart','fa-solid fa-camera'
-     ]
-    for(i = 0; i < icons.length; i++){
-        var icon = document.createElement("i")
-        icon.className = icons[i]; // <i class="fa-solid fa-share"></i>
-        icon.setAttribute("tofiq",icons[i])
-        var span = document.createElement("span") // <span> </span>
-        span.setAttribute("tofiq",icons[i])
-        span.setAttribute("class","mySpan")
-        span.appendChild(icon) // <span><i class="fa-solid fa-share"></i> </span>
-        iconspan.appendChild(span)
+        let myInput = document.getElementById("myInput")
+        $(document).on('click', '.myIcon', function (e) {
+            myInput.value = e.currentTarget.attributes.tofiq.value
 
-        span.onclick = (e) =>{
-            console.log(e[0].getAttribute("tofiq"))
-        }
-    }
+            //e.style.color = "red"
+            console.log(e.target)
+
+        });
 
 
-    function myFunction(e) {
-        console.log(e)
-    }
 
-    
+
+
 
 
 </script>

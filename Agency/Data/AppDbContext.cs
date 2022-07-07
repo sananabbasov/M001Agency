@@ -1,9 +1,11 @@
 ﻿using Agency.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Agency.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<M001User>
     {
         public AppDbContext(DbContextOptions options) : base(options)
         {}
@@ -18,5 +20,13 @@ namespace Agency.Data
         public DbSet<Portfolio> Portfolios { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.Entity<M001User>().ToTable("Users");
+            builder.Entity<IdentityRole>().ToTable("Roles");
+        }
     }
 }

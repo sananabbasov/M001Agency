@@ -1,4 +1,6 @@
-﻿namespace Agency.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Agency.Models
 {
     public class Banner : Base
     {
